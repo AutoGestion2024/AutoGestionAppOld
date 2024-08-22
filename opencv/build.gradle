@@ -190,5 +190,5 @@ publishing {
 }
 
 dependencies {
-    implementation project(":opencv")
+    //implementation project(":opencv")
 }
