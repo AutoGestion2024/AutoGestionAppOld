@@ -12,21 +12,21 @@ import com.example.autogestion.data.Reparation
 interface ReparationDao {
     // Inserer une reparation
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addReparation(reparation: Reparation)
+    fun addReparation(reparation: Reparation)
 
     // Modifier une réparation
     @Update
-    suspend fun updateReparation(reparation: Reparation)
+    fun updateReparation(reparation: Reparation)
 
     // Supprimer une réparation
     @Delete
-    suspend fun deleteReparation(reparation: Reparation)
+    fun deleteReparation(reparation: Reparation)
 
     // Obtenir une réparation
     @Query("SELECT * FROM reparation_table WHERE reparationId = :reparationId")
-    suspend fun getReparationById(reparationId: Int): Reparation?
+    fun getReparationById(reparationId: Int): Reparation?
 
     // Obtenir toutes les réparations
     @Query("SELECT * FROM reparation_table")
-    suspend fun getAllReparations(): List<Reparation>
+    fun getAllReparations(): List<Reparation>
 }

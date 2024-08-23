@@ -12,21 +12,21 @@ import com.example.autogestion.data.Vehicle
 interface VehicleDao {
     // Inserer un véhicule
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addVehicle(vehicle: Vehicle)
+    fun addVehicle(vehicle: Vehicle)
 
     // Modifier un véhicule
     @Update
-    suspend fun updateVehicle(vehicle: Vehicle)
+    fun updateVehicle(vehicle: Vehicle)
 
     // Supprimer un véhicule
     @Delete
-    suspend fun deleteVehicle(vehicle: Vehicle)
+    fun deleteVehicle(vehicle: Vehicle)
 
     // Obtenir un véhicule
     @Query("SELECT * FROM vehicle_table WHERE vehicleId = :vehicleId")
-    suspend fun getVehicleById(vehicleId: Int): Vehicle?
+    fun getVehicleById(vehicleId: Int): Vehicle?
 
     // Obtenir tous les véhicules
     @Query("SELECT * FROM vehicle_table")
-    suspend fun getAllVehicles(): List<Vehicle>
+    fun getAllVehicles(): List<Vehicle>
 }
