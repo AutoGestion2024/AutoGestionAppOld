@@ -11,7 +11,6 @@ import androidx.room.Update
 @Dao
 interface ClientDao {
 
-    // Clients
     // Inserer un client
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addClient(client: Client)
@@ -32,50 +31,7 @@ interface ClientDao {
     @Query("SELECT * FROM client_table")
     suspend fun getAllClients(): List<Client>
 
-
-    // Véhicules
-    // Inserer un véhicule
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addVehicle(vehicle: Vehicle)
-
-    // Modifier un véhicule
-    @Update
-    suspend fun updateVehicle(vehicle: Vehicle)
-
-    // Supprimer un véhicule
-    @Delete
-    suspend fun deleteVehicle(vehicle: Vehicle)
-
-    // Obtenir un véhicule
-    @Query("SELECT * FROM vehicle_table WHERE vehicleId = :vehicleId")
-    suspend fun getVehicleById(vehicleId: Int): Vehicle?
-
-    // Obtenir tous les véhicules
-    @Query("SELECT * FROM vehicle_table")
-    suspend fun getAllVehicles(): List<Vehicle>
-
-
-    // Réparations
-    // Inserer une reparation
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addReparation(reparation: Reparation)
-
-    // Modifier une réparation
-    @Update
-    suspend fun updateReparation(reparation: Reparation)
-
-    // Supprimer une réparation
-    @Delete
-    suspend fun deleteReparation(reparation: Reparation)
-
-    // Obtenir une réparation
-    @Query("SELECT * FROM reparation_table WHERE reparationId = :reparationId")
-    suspend fun getReparationById(reparationId: Int): Reparation?
-
-    // Obtenir toutes les réparations
-    @Query("SELECT * FROM reparation_table")
-    suspend fun getAllReparations(): List<Reparation>
-
+    // TODO: -> views?
     // Obtenir un client avec ses véhicules
     @Transaction
     @Query("SELECT * FROM client_table WHERE clientId = :clientId")
